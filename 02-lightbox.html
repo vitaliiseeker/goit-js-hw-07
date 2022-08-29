@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>SimpleLightbox library</title>
+  <link rel="stylesheet" href="css/common.css" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    .backdrop {
+      position: fixed;
+      top: 0;
+      left: 0;
+
+      width: 100%;
+      height: 100%;
+
+      z-index: 10;
+      overflow: scroll;
+
+      background-color: rgba(0, 0, 0, 0.6);
+      transition-duration: var(--animation-duration);
+      transition-timing-function: var(--timing-function);
+    }
+
+    .modal {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+
+      margin: auto;
+      width: 66%;
+
+      transform: translate(-50%, -50%);
+      transition-property: transform;
+      transition-duration: var(--animation-duration);
+      transition-timing-function: var(--timing-function);
+    }
+  </style>
+</head>
+
+<body>
+  <p><a href="index.html">Go back</a></p>
+
+  <!-- Add gallery items to this list -->
+  <ul class="gallery"></ul>
+
+  <script src="js/02-lightbox.js" type="module"></script>
+
+  <script async src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js"
+    integrity="sha512-WFN04846sdKMIP5LKNphMaWzU7YpMyCU245etK3g/2ARYbPK9Ub18eG+ljU96qKRCWh+quCY7yefSmlkQw1ANQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer">
+    </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/basiclightbox@5.0.4/dist/basicLightbox.min.js"></script>
+
+
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js"
+          integrity="sha512-q583ppKrCRc7N5O0n2nzUiJ+suUv7Et1JGels4bXOaMFQcamPk9HjdUknZuuFjBNs7tsMuadge5k9RzdmO+1GQ=="
+          crossorigin="anonymous" referrerpolicy="no-referrer">
+          </script> -->
+
+  <!-- <script defer src="path/to/script.js"></script> -->
+</body>
+
+</html>
