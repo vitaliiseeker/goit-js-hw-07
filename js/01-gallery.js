@@ -6,8 +6,6 @@ let modal = null;
 
 gallery.innerHTML = createGallery(galleryItems);
 gallery.addEventListener("click", clickGallery);
-// gallery.addEventListener("click", clickGallery);
-
 
 function clickGallery(e) {
     e.preventDefault();
@@ -42,23 +40,22 @@ function createModalWindow(e) {
                     width=100%
                 />
             </div>
-        </div>`
-    );
-    console.log(modal);
+        </div>`, {
+        onShow: () => {
+            modal.element().onclick = modal.close;
+            document.addEventListener("keydown", isKeyPressed);
+        },
+        onClose: () => {
+            document.removeEventListener("keydown", isKeyPressed);
+        }
+    });
     modal.show();
-    document.querySelector(".modal").addEventListener("click", destroyModalWindows, true);
-    document.querySelector("body").addEventListener("keydown", isKeyPressed);
-}
-function destroyModalWindows() {
-    modal.close();
-    // document.querySelector(".modal").removeEventListener("click", destroyModalWindows);
-    document.querySelector("body").removeEventListener("keydown", isKeyPressed);
 }
 
 function isKeyPressed(e) {
     if (e.code === "Escape") {
         modal.close();
-        document.querySelector("body").removeEventListener("keydown", isKeyPressed);
+        document.removeEventListener("keydown", isKeyPressed);
     }
 }
 
