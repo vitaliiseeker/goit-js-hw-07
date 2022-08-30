@@ -13,17 +13,17 @@ function createGallery(items) {
                 class="gallery__image"
                 src=${item.preview}
                 alt="${item.description}"
-                title="${item.description}"
               />
             </a>`, "");
 };
 
 function createGalleryLightbox() {
 
-  const galleryLightbox = new SimpleLightbox('.gallery a');
-  galleryLightbox.on('show.simplelightbox', function () {
-    galleryLightbox.options.captionDelay = 250;
+  const galleryLightbox = new SimpleLightbox('.gallery a', {
+    captionsData: "alt",
+    captionDelay: 250,
   });
+
 }
 
 // Зроби таку саму галерею як в першому завданні, але використовуючи бібліотеку SimpleLightbox, яка візьме на себе обробку кліків по зображеннях, відкриття і закриття модального вікна, а також гортання зображень за допомогою клавіатури.
