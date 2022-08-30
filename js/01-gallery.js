@@ -13,18 +13,17 @@ function clickGallery(e) {
 };
 
 function createGallery(items) {
-    return items.map(item =>
-        `<div class="gallery__item">
-            <a class="gallery__link" href=${item.original}> 
-                <img
-                    class="gallery__image"
-                    src=${item.preview}
-                    data-source=${item.original}
-                    loading="lazy"
-                    alt="${item.description}"
-                 />
-            </a>
-        </div>`).join("");
+    return items.reduce((acc, item) =>
+        acc += `<div class="gallery__item">
+                    <a class="gallery__link" href=${item.original}> 
+                        <img
+                            class="gallery__image"
+                            src=${item.preview}
+                            data-source=${item.original}
+                            alt="${item.description}"
+                        />
+                    </a>
+                </div>`, "");
 };
 
 function createModalWindow(e) {
@@ -37,7 +36,6 @@ function createModalWindow(e) {
                     src=${urlImg}
                     data-source=${urlImg}
                     alt="${e.target.alt}"
-                    width=100%
                 />
             </div>
         </div>`, {

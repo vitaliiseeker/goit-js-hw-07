@@ -4,27 +4,21 @@ import { galleryItems } from './gallery-items.js';
 const gallery = document.querySelector(".gallery");
 
 gallery.innerHTML = createGallery(galleryItems);
-gallery.addEventListener("click", clickGallery);
-
-function clickGallery(e) {
-  e.preventDefault();
-  chowGalleryLightbox();
-};
+createGalleryLightbox();
 
 function createGallery(items) {
-  return items.map(item =>
-    `<a class="gallery__item" href=${item.original}>
-      <img
-        class="gallery__image"
-        src=${item.preview}
-        loading="lazy"
-        alt="${item.description}"
-        title="${item.description}"
-      />
-    </a>`).join("");
+  return items.reduce((acc, item) =>
+    acc += `<a class="gallery__item" href=${item.original}>
+              <img
+                class="gallery__image"
+                src=${item.preview}
+                alt="${item.description}"
+                title="${item.description}"
+              />
+            </a>`, "");
 };
 
-function chowGalleryLightbox() {
+function createGalleryLightbox() {
 
   const galleryLightbox = new SimpleLightbox('.gallery a');
   galleryLightbox.on('show.simplelightbox', function () {
