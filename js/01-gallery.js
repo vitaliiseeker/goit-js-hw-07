@@ -53,7 +53,6 @@ function createModalWindow(e) {
 function isKeyPressed(e) {
     if (e.code === "Escape") {
         modal.close();
-        document.removeEventListener("keydown", isKeyPressed);
     }
 }
 
